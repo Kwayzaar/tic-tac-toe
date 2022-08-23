@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import './index.css'
 
@@ -9,17 +9,26 @@ import './index.css'
 // }
 
 const Square = (props) => {
+  const [value, setValue] = useState(null)
+
   return (
-    <div className="square">
-      {props.value}
-    </div>
+    <button 
+      className="square"
+      onClick={() => {
+        return (setValue('X'), 
+          console.log(`a square was clicked!`)
+        )
+      }}
+    >
+      {value}
+    </button>
   )
 }
 
 const Board = () => {
   const renderSquare = (i) => {
     return (
-      <Square value={i} />
+      <Square />
     )
   }
 
