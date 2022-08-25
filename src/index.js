@@ -1,24 +1,29 @@
-import React from "react"
+import React, { useState } from "react"
 import * as ReactDOM  from "react-dom/client"
 import './index.css'
 
-const GameStyles = {
-  
-}
+
 
 const Game = () => {
   return (
     <div className="game">
-      Game 
-      <Board />
+        Game 
+        <Board />
     </div>
   )
 }
 
 const Board = () => {
+  const initialSquares = [
+    null, null, null,
+    null, null, null,
+    null, null, null
+  ]
+  const [squares, setSquares] = useState(initialSquares)
+
   const renderSquare = (i) => {
     return (
-      <Square value={i}/>
+      <Square value={squares[i]}/>
     )
   }
 
@@ -39,10 +44,13 @@ const Board = () => {
 }
 
 const Square = (props) => {
+
   return (
-    <div className="square">
+    <button 
+      className="square" 
+      onClick={() => {}}>
       {props.value}
-    </div>
+    </button>
   )
 }
 

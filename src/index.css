@@ -28,6 +28,11 @@ body {
   height: 100px;
 }
 
+.square:hover{
+  background: #e76f51;
+  outline: none;
+}
+
 .board-row{
   display: flex;
   flex-wrap: nowrap;
