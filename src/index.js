@@ -2,14 +2,14 @@ import React, { useState } from "react"
 import * as ReactDOM  from "react-dom/client"
 import './index.css'
 
+const Square = (props) => {
 
-
-const Game = () => {
   return (
-    <div className="game">
-        Game 
-        <Board />
-    </div>
+    <button 
+      className="square" 
+      onClick={props.onClickEvent}>
+      {props.value}
+    </button>
   )
 }
 
@@ -23,8 +23,15 @@ const Board = () => {
 
   const renderSquare = (i) => {
     return (
-      <Square value={squares[i]}/>
+      <Square 
+        value={squares[i]}
+        onClickEvent={() => handleClickEvent(i)}
+      />
     )
+  }
+
+  const handleClickEvent = (i) => {
+    alert(`square ${i} clicked`)
   }
 
   return (
@@ -43,14 +50,12 @@ const Board = () => {
   )
 }
 
-const Square = (props) => {
-
+const Game = () => {
   return (
-    <button 
-      className="square" 
-      onClick={() => {}}>
-      {props.value}
-    </button>
+    <div className="game">
+        Game 
+        <Board />
+    </div>
   )
 }
 
