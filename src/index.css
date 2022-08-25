@@ -1,42 +1,36 @@
 body {
-  background: #264653;
-  color: white; 
+  background: #023047;
   margin: 20px;
-  font: 36px 'Roboto', sans-serif;
+  font: 32px 'Roboto', open-sans;
+  color: white;
 }
 
 .game {
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
   align-items: center;
 }
 
 .board {
-  background: #f4a261;
+  background: #e9c46a;
   margin: 10px;
   padding: 20px;
-  height: 400px;
-}
-
-.board-row {
-  display: flex;
-  flex-flow: row nowrap;
 }
 
 .square {
   background: #2a9d8f;
-  color: #e9c46a;
-  border: 2px solid #264653;
   padding: 0px;
-  font: 84px 'Roboto Condensed', sans-serif;
+  border: 1px solid #f1faee;
+  font-size: 80px;
+  color: #f1faee;
   text-align: center;
   width: 100px;
   height: 100px;
 }
 
-.square:focus {
-  outline: none;
-  background-color: #92A598; 
+.board-row{
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 
