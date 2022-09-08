@@ -11,12 +11,6 @@ body {
   align-items: center;
 }
 
-.board {
-  background: #e9c46a;
-  margin: 10px;
-  padding: 20px;
-}
-
 .square {
   background: #2a9d8f;
   padding: 0px;
@@ -38,4 +32,7 @@ body {
   flex-wrap: nowrap;
 }
 
-
+.status {
+  margin: 20px;
+  font-size: 32px;
+}
