@@ -18,15 +18,6 @@ const Board = () => {
   const [squares, setSquares] = useState(initialSquares)
   const [xIsNext, setxIsNext] = useState(true)
 
-  const renderSquare = (i) => {
-    return (
-      <Square 
-        value={squares[i]}
-        onClickEvent={() => handleClickEvent(i)}
-      />
-    )
-  }
-
   const handleClickEvent = (i) => {
     // 1. Copy state array 
     const newSquares = [...squares]
@@ -36,7 +27,21 @@ const Board = () => {
     setSquares(newSquares)
     setxIsNext(!xIsNext)
   }
-  const status = `Current player: ${!xIsNext ? 'O' : 'X'}`
+
+  const renderSquare = (i) => {
+    return (
+      <Square 
+        value={squares[i]}
+        onClickEvent={() => handleClickEvent(i)}
+      />
+    )
+  }
+
+
+  const winner = calculateWinner(squares)
+  const status = winner ? 
+    `Winner: ${winner}` :
+    `Next player: ${xIsNext ? 'X' : 'O'}`
   
   return (
     <div>
@@ -72,3 +77,21 @@ root.render(<Game />)
 //   <Game />, 
 //   document.getElementById('root')
 // )
+
+function calculateWinner(squares) {
+  const lines = [
+    [1, 2, 3], [4, 5, 6], [7, 8, 9], // rows
+    [1, 4, 7], [2, 5, 9], [3, 6, 9], // columns
+    [1, 5, 9], [3, 5, 7], // diagonal
+  ]
+
+  for (let line of lines) {
+    const [a, b, c] = line
+
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a]
+    }
+  }
+
+  return null
+}
