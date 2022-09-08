@@ -19,11 +19,15 @@ const Board = () => {
   const [xIsNext, setxIsNext] = useState(true)
 
   const handleClickEvent = (i) => {
-    // 1. Copy state array 
     const newSquares = [...squares]
-    // 2. Mutate copy, set i-th element to xIsNext
+
+    const winnerDeclared = Boolean(calculateWinner(newSquares))
+    const squareFilled  = Boolean(newSquares[i])
+    if (winnerDeclared || squareFilled) {
+      return 
+    }
+
     newSquares[i] = xIsNext ? 'X' : 'O'
-    // 3. Call setSquares function w/ mutated copy 
     setSquares(newSquares)
     setxIsNext(!xIsNext)
   }
